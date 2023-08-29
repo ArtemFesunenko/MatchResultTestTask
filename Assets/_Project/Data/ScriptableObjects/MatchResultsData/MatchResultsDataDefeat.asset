@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2d38abfdb8e7e645aa063bc353eb5d8, type: 3}
+  m_Name: MatchResultsDataDefeat
+  m_EditorClassIdentifier: 
+  MatchResultsData:
+    IsWon: 0
+    RatingPreviousCurrentMaxValues: {x: 150, y: 300}
+    RatingRewardRowsData:
+    - Name: Defeat
+      Value: -5
+    ExperiencePreviousCurrentMaxValues: {x: 150, y: 300}
+    ExperienceRewardRowsData:
+    - Name: Defeat
+      Value: 5
+    - Name: MVP
+      Value: 5
