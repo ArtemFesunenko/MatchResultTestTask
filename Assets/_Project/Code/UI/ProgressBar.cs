@@ -41,12 +41,6 @@ public class ProgressBar : MonoBehaviour
     }
 #endif
 
-    void Start()
-    {
-        sliderInstance.value = 0;
-        sliderInstance.maxValue = 0;
-    }
-
     private void UpdateValue()
     {
         int clampedValue = Mathf.Clamp(_value, minValue, maxValue);
