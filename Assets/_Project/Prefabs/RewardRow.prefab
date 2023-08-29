@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4689816579375046522}
   - component: {fileID: 4510704119096253188}
   - component: {fileID: 899923126886235498}
-  - component: {fileID: 994880298031228054}
   m_Layer: 5
   m_Name: RewardName
   m_TagString: Untagged
@@ -136,26 +135,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &994880298031228054
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2012506902719330384}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreLayout: 0
-  m_MinWidth: -1
-  m_MinHeight: -1
-  m_PreferredWidth: -1
-  m_PreferredHeight: -1
-  m_FlexibleWidth: 0.5
-  m_FlexibleHeight: -1
-  m_LayoutPriority: 1
 --- !u!1 &3024638682242042068
 GameObject:
   m_ObjectHideFlags: 0
@@ -166,7 +145,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6816957122640653004}
   - component: {fileID: 3667249415583136525}
-  - component: {fileID: 3868693785587533235}
   m_Layer: 5
   m_Name: RewardValue
   m_TagString: Untagged
@@ -222,26 +200,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &3868693785587533235
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3024638682242042068}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreLayout: 0
-  m_MinWidth: -1
-  m_MinHeight: -1
-  m_PreferredWidth: -1
-  m_PreferredHeight: -1
-  m_FlexibleWidth: 0.5
-  m_FlexibleHeight: -1
-  m_LayoutPriority: 1
 --- !u!1 &3384019012627866225
 GameObject:
   m_ObjectHideFlags: 0
@@ -252,7 +210,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3384019012627866230}
   - component: {fileID: 3384019012627866228}
-  - component: {fileID: 8364650991714590847}
+  - component: {fileID: 2924343990920267615}
   m_Layer: 5
   m_Name: RewardRow
   m_TagString: Untagged
@@ -290,7 +248,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3384019012627866225}
   m_CullTransparentMesh: 1
---- !u!114 &8364650991714590847
+--- !u!114 &2924343990920267615
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -299,7 +257,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3384019012627866225}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
+  m_Script: {fileID: 11500000, guid: f01ce4eff062a17479607689d20cf314, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
@@ -308,12 +266,13 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 4
-  m_StartCorner: 0
-  m_StartAxis: 0
-  m_CellSize: {x: 200, y: 30}
-  m_Spacing: {x: 10, y: 0}
-  m_Constraint: 1
-  m_ConstraintCount: 2
+  fitType: 4
+  rows: 1
+  columns: 2
+  cellSize: {x: 190, y: 30}
+  spacing: {x: 10, y: 0}
+  fitX: 1
+  fitY: 1
 --- !u!1 &5354892900985255382
 GameObject:
   m_ObjectHideFlags: 0
