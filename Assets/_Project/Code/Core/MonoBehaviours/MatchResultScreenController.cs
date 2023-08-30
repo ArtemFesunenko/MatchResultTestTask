@@ -82,6 +82,29 @@ public class MatchResultScreenController : MonoBehaviour
         ShowMatchResults(matchResultsDataScriptableObjects[Random.Range(0, matchResultsDataScriptableObjects.Length)].MatchResultsData);
     }
 
+    public void ShowMatchResults(MatchResultsData matchResultsData)
+    {
+        Cleanup();
+
+        resultText.SetText(matchResultsData.IsWon ? victoryString : defeatString);
+        var resultTextAnimationSequence = DOTween.Sequence();
+        resultTextAnimationSequence.Append(resultText.transform.DOScale(1.5f, animationSegmentsDuration * 0.1f));
+        resultTextAnimationSequence.Append(resultText.transform.DOScale(1f, animationSegmentsDuration * 0.9f));
+
+        ratingProgressBar.value = matchResultsData.RatingPreviousCurrentMaxValues.x;
+        ratingProgressBar.maxValue = matchResultsData.RatingPreviousCurrentMaxValues.y;
+        InitializeRewardBlock(ratingBlockRoot, ref ratingAnimationSequence, matchResultsData.RatingPreviousCurrentMaxValues.x, 
+            ratingRowsContainer, matchResultsData.RatingRewardRowsData, ratingProgressBar, ratingSprite);
+        experienceProgressBar.value = matchResultsData.ExperiencePreviousCurrentMaxValues.x;
+        experienceProgressBar.maxValue = matchResultsData.ExperiencePreviousCurrentMaxValues.y;
+        InitializeRewardBlock(experienceBlockRoot, ref experienceAnimationSequence, matchResultsData.ExperiencePreviousCurrentMaxValues.x, 
+            experienceRowsContainer, matchResultsData.ExperienceRewardRowsData, experienceProgressBar, experienceSprite);
+
+        ratingAnimationSequence.SetDelay(animationSegmentsDuration);
+        ratingAnimationSequence.AppendCallback(() => experienceAnimationSequence.Play());
+        ratingAnimationSequence.Play();
+    }
+
     private void Cleanup()
     {
         ratingAnimationSequence.Kill();
@@ -105,24 +128,6 @@ public class MatchResultScreenController : MonoBehaviour
         experienceRowsLayoutGroup.enabled = true;
         ratingBlockRoot.SetActive(false);
         experienceBlockRoot.SetActive(false);
-    }
-
-    public void ShowMatchResults(MatchResultsData matchResultsData)
-    {
-        Cleanup();
-
-        resultText.SetText(matchResultsData.IsWon ? victoryString : defeatString);
-        ratingProgressBar.value = matchResultsData.RatingPreviousCurrentMaxValues.x;
-        ratingProgressBar.maxValue = matchResultsData.RatingPreviousCurrentMaxValues.y;
-        InitializeRewardBlock(ratingBlockRoot, ref ratingAnimationSequence, matchResultsData.RatingPreviousCurrentMaxValues.x, 
-            ratingRowsContainer, matchResultsData.RatingRewardRowsData, ratingProgressBar, ratingSprite);
-        experienceProgressBar.value = matchResultsData.ExperiencePreviousCurrentMaxValues.x;
-        experienceProgressBar.maxValue = matchResultsData.ExperiencePreviousCurrentMaxValues.y;
-        InitializeRewardBlock(experienceBlockRoot, ref experienceAnimationSequence, matchResultsData.ExperiencePreviousCurrentMaxValues.x, 
-            experienceRowsContainer, matchResultsData.ExperienceRewardRowsData, experienceProgressBar, experienceSprite);
-        
-        ratingAnimationSequence.AppendCallback(() => experienceAnimationSequence.Play());
-        ratingAnimationSequence.Play();
     }
 
     private void InitializeRewardBlock(GameObject blockRoot, ref Sequence animationSequence, int startProgressValue, 
