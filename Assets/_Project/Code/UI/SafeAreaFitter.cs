@@ -7,10 +7,15 @@ public class SafeAreaFitter : MonoBehaviour
 #if UNITY_EDITOR
     private void OnValidate()
     {
-        Awake();
+        FitScreen();
     }
 #endif
     void Awake()
+    {
+        FitScreen();
+    }
+
+    private void FitScreen()
     {
         var rectTransform = GetComponent<RectTransform>();
         var safeArea = Screen.safeArea;
