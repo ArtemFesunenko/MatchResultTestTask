@@ -18,10 +18,8 @@ MonoBehaviour:
     RatingRewardRowsData:
     - Name: Defeat
       Value: -5
-    - Name: Bonus Defeat
+    - Name: Bonus
       Value: -5
-    - Name: You are so ugly
-      Value: -10
     - Name: MVP
       Value: -1
     ExperiencePreviousCurrentMaxValues: {x: 150, y: 300}
@@ -32,5 +30,5 @@ MonoBehaviour:
       Value: 10
     - Name: Bonus
       Value: 15
-    - Name: Bonus for loose streak
+    - Name: Bonus
       Value: 20
