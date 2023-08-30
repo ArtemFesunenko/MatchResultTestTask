@@ -26,6 +26,8 @@ public class MatchResultScreenController : MonoBehaviour
     [SerializeField] private Sprite experienceSprite;
     [Header("Values")]
     [SerializeField] private float animationSegmentsDuration = 0.5f;
+    [SerializeField] private Color victoryColor;
+    [SerializeField] private Color defeatColor;
 
     private const string victoryString = "VICTORY";
     private const string defeatString = "DEFEAT";
@@ -90,6 +92,8 @@ public class MatchResultScreenController : MonoBehaviour
         var resultTextAnimationSequence = DOTween.Sequence();
         resultTextAnimationSequence.Append(resultText.transform.DOScale(1.5f, animationSegmentsDuration * 0.1f));
         resultTextAnimationSequence.Append(resultText.transform.DOScale(1f, animationSegmentsDuration * 0.9f));
+
+        Camera.main.backgroundColor = matchResultsData.IsWon ? victoryColor : defeatColor;
 
         ratingProgressBar.value = matchResultsData.RatingPreviousCurrentMaxValues.x;
         ratingProgressBar.maxValue = matchResultsData.RatingPreviousCurrentMaxValues.y;
